@@ -22,7 +22,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		Particle particle;
-		ofVec2f position;
+		static const int NUM = 1000;
+		Particle particle[NUM];
 
 };
