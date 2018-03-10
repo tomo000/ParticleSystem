@@ -8,7 +8,7 @@
 #include "ofMain.h"
 
 class Particle{
-    
+
 public:
     //初期設定
     void setup(ofVec2f position, ofVec2f velocity);
@@ -22,9 +22,12 @@ public:
     void updatePos();
     //画面からはみ出たらバウンドさせる
     void checkBounds(float xmin, float ymin, float xmax, float ymax);
+    //画面からはみ出したら逆側から出てくる
+    void checkScreen(float xmin, float ymin, float xmax, float ymax);
+
     //描画
     void draw();
-    
+
     //位置ベクトルの配列
     ofVec2f position;
     //速度ベクトルの配列
@@ -36,5 +39,3 @@ public:
     //パーティクルの半径
     float radius;
 };
-
-

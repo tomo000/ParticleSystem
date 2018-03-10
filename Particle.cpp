@@ -51,9 +51,35 @@ void Particle::checkBounds(float xmin, float ymin, float xmax, float ymax){
           position.y = ymax - (position.y - ymax);
      }
 }
+//画面からはみ出したら逆側から出てくる
+void Particle::checkScreen(float xmin, float ymin, float xmax, float ymax){
+     //画面の端でバウンドする
+     if (position.x < xmin) {
+          position.x = xmax;
+     }
+     if (position.x > xmax) {
+          position.x = xmin;
+     }
+
+     //枠内に収める
+     if (position.y < ymin) {
+          position.y = ymax;
+     }
+     if (position.y > ymax) {
+          position.y = ymin;
+     }
+}
 
 //描画
 void Particle::draw(){
-     ofSetHexColor(0x3399cc);
+     //透明度を使用可能にする
+     ofEnableAlphaBlending();
+     //混色を加算混合にする
+     glBlendFunc(GL_ONE, GL_ONE);
+     //HSBで色を指定する
+     ofColor c;
+     c.setHsb(ofRandom(255),255,255, 40);
+     //色を指定する
+     ofSetColor(c);
      ofCircle(position, radius);
 }

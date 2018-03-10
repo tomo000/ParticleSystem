@@ -10,11 +10,11 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
      for (int i = 0; i < NUM; i++) {
-         particle[i].resetForce();
-          particle[i].addForce(ofVec2f(0, 0.25));
+          particle[i].resetForce();
+          particle[i].addForce(ofVec2f(ofRandom(-1,1), ofRandom(-1,1)));
           particle[i].updateForce();
           particle[i].updatePos();
-          particle[i].checkBounds(0, -1000, ofGetWidth(), ofGetHeight());
+          particle[i].checkScreen(0, 0, ofGetWidth(), ofGetHeight());
      }
 
 }
@@ -63,7 +63,7 @@ void ofApp::mouseReleased(int x, int y, int button){
           ofVec2f vel = ofVec2f(cos(angle) * length, sin(angle) * length);
 
           particle[i].setup(pos, vel);
-          particle[i].radius = 4;
+          particle[i].radius = ofRandom(10);
           particle[i].friction = 0.01;
      }
 
