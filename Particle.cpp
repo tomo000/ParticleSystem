@@ -23,6 +23,10 @@ void Particle::addForce(ofVec2f _f1, ofVec2f _f2){
      force += _f1 + _f2;
 }
 
+void Particle::friction(){
+     force -= velocity * fric;
+}
+
 //equation of motion
 void Particle::EOM(){
      acceletration = force / mass;

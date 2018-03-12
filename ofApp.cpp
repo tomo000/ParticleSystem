@@ -1,3 +1,6 @@
+//refered to tado's code
+//https://github.com/tado
+
 #include "ofApp.h"
 
 //--------------------------------------------------------------
@@ -15,8 +18,9 @@ void ofApp::update(){
      for (int i = 0; i < NUM; i++) {
           particle[i].resetForce();
           particle[i].addForce(ofVec2f(ofRandom(-1,1), ofRandom(-1,1)));
+          particle[i].friction();
           particle[i].EOM();
-          particle[i].speedLimit(max);
+          //particle[i].speedLimit(max);
           particle[i].Bound();
      }
      /*img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
@@ -66,9 +70,7 @@ void ofApp::mouseReleased(int x, int y, int button){
 
           particle[i].setup(pos, vel);
           particle[i].radius = ofRandom(15);
-          particle[i].friction = 0.01;
      }
-
 }
 
 //--------------------------------------------------------------

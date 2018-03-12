@@ -19,6 +19,9 @@ public:
      //add force
      void addForce(ofVec2f f);
      void addForce(ofVec2f f1, ofVec2f f2);
+    
+     //air resistance
+     void friction();
 
      //equation of motion
      void EOM();
@@ -46,7 +49,7 @@ public:
      ofVec2f force;
 
      //set friction
-     float friction;
+     float fric = 0.01;
 
      //radius of particle
      float radius;

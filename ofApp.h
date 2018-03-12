@@ -24,9 +24,9 @@ public:
 
 	static const int NUM = 1000;
 	Particle particle[NUM];
-	//スクリーンショット
+	//screenshot
      ofImage img;
-    
+
     //speed max;
     int max = 5;
 
