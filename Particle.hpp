@@ -10,32 +10,47 @@
 class Particle{
 
 public:
-    //初期設定
-    void setup(ofVec2f position, ofVec2f velocity);
-    //力をリセット
-    void resetForce();
-    //力を加える
-    void addForce(ofVec2f force);
-    //力を更新
-    void updateForce();
-    //位置を更新
-    void updatePos();
-    //画面からはみ出たらバウンドさせる
-    void checkBounds(float xmin, float ymin, float xmax, float ymax);
-    //画面からはみ出したら逆側から出てくる
-    void checkScreen(float xmin, float ymin, float xmax, float ymax);
+     //initial setup
+     void setup(ofVec2f pos, ofVec2f vel);
 
-    //描画
-    void draw();
+     //reset force
+     void resetForce();
 
-    //位置ベクトルの配列
-    ofVec2f position;
-    //速度ベクトルの配列
-    ofVec2f velocity;
-    //力ベクトルの配列
-    ofVec2f force;
-    //摩擦係数
-    float friction;
-    //パーティクルの半径
-    float radius;
+     //add force
+     void addForce(ofVec2f f);
+     void addForce(ofVec2f f1, ofVec2f f2);
+
+     //equation of motion
+     void EOM();
+
+     //bound particle
+     void Bound();
+     void Screen();
+
+     //speed limit
+     void speedLimit(int max);
+
+     //draw
+     void draw();
+
+     //vector of position
+     ofVec2f position;
+
+     //vector of velocity
+     ofVec2f velocity;
+
+     //vector of acceletration
+     ofVec2f acceletration;
+
+     //vector of force
+     ofVec2f force;
+
+     //set friction
+     float friction;
+
+     //radius of particle
+     float radius;
+
+     //set mass
+     float mass;
 };
